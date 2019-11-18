@@ -28,13 +28,14 @@ defmodule Demo.Mixfile do
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
 
-  # Specifies your project dependencies.
+  # Specifies your project dependencies.a
   #
   # Type `mix help deps` for examples and options.
   defp deps do
     [
       {:phoenix, "~> 1.4.9"},
-      {:phoenix_live_view, "~> 0.4.1"},
+      {:phoenix_live_view,
+       git: "https://github.com/phoenixframework/phoenix_live_view.git", tag: "master"},
       {:plug_cowboy, "~> 2.0"},
       {:plug, "~> 1.8"},
       {:phoenix_pubsub, "~> 1.1"},

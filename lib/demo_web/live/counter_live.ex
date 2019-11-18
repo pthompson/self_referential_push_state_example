@@ -25,8 +25,12 @@ defmodule DemoWeb.CounterLive do
     {:ok, assign(socket, val: session[:val] || 0, say_hello: false)}
   end
 
-  def handle_params(_params, _uri, socket) do
-    {:noreply, socket}
+  def handle_params(_params, uri, socket) do
+    IO.inspect(uri, label: "IN HANDLE PARAMS, uri")
+
+    {:noreply,
+     socket
+     |> assign(say_hello: String.ends_with?(uri, "say-hello"))}
   end
 
   def handle_event("inc", _, socket) do
